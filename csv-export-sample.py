@@ -6,14 +6,14 @@ from ncd_enterprise import NCDEnterprise
 #TODO Change this line to your Serial Port
 
 # SERIAL_PORT = "/dev/tty.usbserial-AC4CF4AA"
-SERIAL_PORT = "/dev/cu.usbserial-AC4CF4AA"
+SERIAL_PORT = "/dev/ttyUSB0"
 BAUD_RATE = 115200
 
 #this is function is the callback that I pass into the NCDEnterprise module during
 #instantiation. The module uses the Digi XBee module which runs on another thread.
 def my_custom_callback(sensor_data):
-
-    if sensor_data['sensor_type_id'] is 40:
+    print("DEBUG: in callback")
+    if sensor_data['sensor_type_id'] == 40:
         csv_dict = restructure_data(sensor_data.get('sensor_data'))
         print('data acquired')
         csv_file = open('~/vibration_data.csv', 'a+')

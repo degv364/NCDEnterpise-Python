@@ -6,7 +6,7 @@ from ncd_enterprise import NCDEnterprise
 #TODO Change this line to your Serial Port
 
 # SERIAL_PORT = "/dev/tty.usbserial-AC4CF4AA"
-SERIAL_PORT = "/dev/cu.usbserial-A106F1ZE"
+SERIAL_PORT = "/dev/ttyUSB0"
 BAUD_RATE = 115200
 
 #this is function is the callback that I pass into the NCDEnterprise module during
