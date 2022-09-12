@@ -602,6 +602,15 @@ def sensor_types():
                 'current': signInt(reduce(msbLsb, d[33:36]), 24) / 1000
             }
         },
+        # TODO - This is just a copy of 14. Needs further testing
+        '52': {
+            'name': '10-Bit 1-Channel 4-20mA',
+            'parse': lambda d: (lambda adc=reduce(msbLsb, d[0:2]): {
+                'adc': adc,
+                'mA': adc * 20 / 998
+            })()
+        },
+
         '80': {
             'name': 'Predictive Maintenance Sensor',
             'parse': lambda d: (
