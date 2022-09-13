@@ -28,7 +28,7 @@ def my_custom_callback(sensor_data):
     # time control for debug
     write_to("datetime", PREFIX, datetime.now().ctime(), 100)
     print(datetime.now().ctime())
-    battery = sensor_data["battery_percent"]
+    battery = sensor_data["battery_percent"].replace("%", "")
     if sensor_data["sensor_type_id"] == 13:
         value = sensor_data["sensor_data"]["amps"]
         print("amps:", value)
